@@ -25,6 +25,7 @@ properties:
         GetScript: return $false
         TestScript: return $false
     - resource: Microsoft.Windows.Developer/DeveloperMode
+      id: developerMode
       directives:
         description: Enable Developer Mode
         allowPrerelease: true
@@ -33,6 +34,9 @@ properties:
     ### Install Windows VirtualMachinePlatform
     ### -------------------------------------
     - resource: PSDscResources/WindowsOptionalFeature
+      id: VirtualMachinePlatform
+      dependsOn:
+        - developerMode
       directives:
         description: Install VirtualMachinePlatform
       settings:
@@ -41,6 +45,9 @@ properties:
     ### Install WSL
     ### -------------------------------------
     - resource: PSDscResources/WindowsOptionalFeature
+      id: wsl
+      dependsOn:
+        - VirtualMachinePlatform
       directives:
         description: Install WSL
       settings:
@@ -50,6 +57,8 @@ properties:
     ### -------------------------------------
     - resource: PSDscResources/Script
       id: ubuntuwsl
+      dependsOn:
+        - wsl
       directives:
         description: Install Ubuntu for WSL
       settings:
@@ -74,6 +83,9 @@ properties:
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: azurecli
+      dependsOn:
+        - dotnetsdk
+        - developerMode
       directives:
         description: Install Azure CLI
         allowPrerelease: true
@@ -83,6 +95,8 @@ properties:
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: Azd
+      dependsOn:
+        - azurecli
       directives:
         description: Install Azd
         allowPrerelease: true
@@ -93,8 +107,8 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: docker
       dependsOn:
-        - vscode
-        - docker
+        - developerMode
+        - VirtualMachinePlatform
       directives:
         description: Install Docker Desktop
         allowPrerelease: true

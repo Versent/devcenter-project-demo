@@ -6,7 +6,7 @@ description: "This definition is for the Versent Demo backend engineering enviro
 tasks:
   - name: ~/winget
     parameters:
-      downloadUrl: 'https://raw.githubusercontent.com/Versent/devcenter-common-eng-catalog/refs/heads/main/dsc-configurations/common-config.dsc.yaml'
+      downloadUrl: 'https://raw.githubusercontent.com/Versent/devcenter-common-eng-catalog/refs/heads/main/image-definitions/basic.imagedefinition.yaml'
   ### Run the DSC configuration for the backend engineering environment
   - name: ~/winget
     parameters:
