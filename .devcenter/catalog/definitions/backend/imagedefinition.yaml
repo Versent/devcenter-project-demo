@@ -10,8 +10,8 @@ tasks:
   ### Run the DSC configuration for the backend engineering environment
   - name: ~/winget
     parameters:
-      downloadUrl: 'https://raw.githubusercontent.com/contoso-co/eShop/refs/heads/main/.configurations/backend-eng.dsc.yaml'
+      downloadUrl: 'https://raw.githubusercontent.com/Versent/devcenter-project-demo/refs/heads/main/.configurations/backend-eng.dsc.yaml'
 userTasks:
   - name: ~/winget
     parameters:
-      configurationFile: 'z:\workspaces\demo-project\.configurations\backend-eng.postcreate.dsc.yaml'
+      configurationFile: 'z:\workspaces\versent\devcenter-project-demo\.configurations\backend-eng.postcreate.dsc.yaml'

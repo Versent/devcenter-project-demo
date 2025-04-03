@@ -20,7 +20,7 @@ properties:
         description: Configure Git to use Default WAM account
       settings:
         SetScript: |
-          git clone --quiet https://github.com/contoso-co/eshop.git "Z:\workspaces\versent\demo-project"
+          git clone --quiet https://github.com/Versent/devcenter-project-demo.git "Z:\workspaces\versent\devcenter-project-demo"
           $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
           
         GetScript: return $false
