@@ -21,7 +21,7 @@ properties:
       settings:
         SetScript: |
           git clone --quiet https://github.com/Versent/devcenter-project-demo.git "Z:\workspaces\versent\devcenter-project-demo"
-                    
+
         GetScript: return $false
         TestScript: return $false
     - resource: Microsoft.Windows.Developer/DeveloperMode
@@ -66,10 +66,10 @@ properties:
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: dotnetsdk
       directives:
-        description: Install DotNET SDK Preview
+        description: Install DotNET SDK 9
         allowPrerelease: true
       settings:
-        id: Microsoft.DotNet.SDK.Preview
+        id: Microsoft.DotNet.SDK.9
     ### Install Azure CLI
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
@@ -92,6 +92,9 @@ properties:
     ### -------------------------------------
     - resource: Microsoft.WinGet.DSC/WinGetPackage
       id: docker
+      dependsOn:
+        - vscode
+        - docker
       directives:
         description: Install Docker Desktop
         allowPrerelease: true
