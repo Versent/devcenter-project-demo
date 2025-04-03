@@ -21,8 +21,7 @@ properties:
       settings:
         SetScript: |
           git clone --quiet https://github.com/Versent/devcenter-project-demo.git "Z:\workspaces\versent\devcenter-project-demo"
-          $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
-          
+                    
         GetScript: return $false
         TestScript: return $false
     - resource: Microsoft.Windows.Developer/DeveloperMode
